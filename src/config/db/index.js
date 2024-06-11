@@ -3,13 +3,16 @@ const { DB_USER, DB_PASSWORD, DB_HOST, DB_PORT, DB_NAME } = process.env;
 async function connect() {
     try {
         if (DB_USER) {
+            console.log("DB_USER: ", DB_USER);
             await mongoose.connect(
-                `mongodb://${DB_USER}:${DB_PASSWORD}@${DB_HOST}:${DB_PORT}/${DB_NAME}?authSource=admin`,
+                // `mongodb://${DB_USER}:${DB_PASSWORD}@${DB_HOST}:${DB_PORT}/${DB_NAME}?authSource=admin`,
+                `mongodb+srv://${DB_USER}:${DB_PASSWORD}@${DB_HOST}/${DB_NAME}`,
                 {
                     useNewUrlParser: true,
                     useUnifiedTopology: true,
                 },
             );
+
             console.log("Connect successfully");
         } else {
             await mongoose.connect(`mongodb://${DB_HOST}:${DB_PORT}/${DB_NAME}`, {

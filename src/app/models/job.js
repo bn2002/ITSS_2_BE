@@ -19,6 +19,8 @@ const JobSchema = new Schema(
         benefits: Array,
         time: String,
         general_info: Array,
+        ratings: Array,
+        my_rate: Number,
     },
     {
         versionKey: false,
