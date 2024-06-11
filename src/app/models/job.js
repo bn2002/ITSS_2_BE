@@ -21,6 +21,7 @@ const JobSchema = new Schema(
         general_info: Array,
         ratings: Array,
         my_rate: Number,
+        favorite: Boolean,
     },
     {
         versionKey: false,
